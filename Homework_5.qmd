@@ -1,0 +1,27 @@
+---
+title: "HW5"
+format: docx
+editor: visual
+---
+
+Ethan Blacher
+
+6/3/23
+
+Homework 5
+
+```{r Install_Packages}
+library(here)
+
+```
+
+					
+
+				
+
+			
+
+		
+
+	
+\
