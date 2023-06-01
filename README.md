@@ -14,7 +14,8 @@ To access the the data used for the project as well as ancillary data, use the w
 
 4. Methodological information
 
-The fish assemblages of eleven principal lakes (Allequash, Big Muskellunge, Crystal, Sparkling, Trout, Crystal Bog, Trout Bog, Mendota, Monona, Wingra, and Fish) are monitered using data that is collected annually. While most lakes began sampling in 1981, Lakes Monona, Wingra, and Fish began sampling in 1995. Seine, crayfish or minnow traps, fyke nets, and electrofishing equipment are used to collect data at six littoral sites per lake. Additionally, two pelagic samples per lake are collected from the deepest point using vertically hung gill nets. Also, at two locations each lake, a trammel net collects samples across the thermocline. Only fyke nets and minnow traps are used in the Trout and Crystal Bog lakes.
+Two plants of each Sarracenia species were allocated to one of six feeding levels in a regression design ranging from 0 to a quarter gram of finely ground wasps per feeding (for small sized species), 0 to half a gram (for medium sized species), and 0 to one gram (for large sized species). Plants were fed once a week for 7 weeks, with the above ground size and amass (mass-based light-saturated photosynthetic rate of youngest leaf) measured before beginning treatments. In total, the measurements contain twelve plants per ten different Sarracenia species, equaling 120 total plant observations. 
+
 
 5. Data-specific information
 
