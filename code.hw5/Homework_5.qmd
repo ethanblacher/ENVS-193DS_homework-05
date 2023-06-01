@@ -1,7 +1,14 @@
 ---
 title: "HW5"
-format: docx
-editor: visual
+format: 
+  html:
+    toc: true
+    toc-location: left
+    code-fold: true
+    theme: yeti 
+execute:
+  message: false
+  warning: false
 ---
 
 Ethan Blacher
@@ -27,4 +34,22 @@ library(AICcmodavg)
 library(GGally)
 ```
 
-\
+6.  **Introduction**
+
+    This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora
+
+    This study addressed the effects of prey availability on a litany of factors, such as the photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species. We tested the hypothesis that increased prey availability would stimulate Amass of one or more leaves, increase photosynthetic N- and P-use efficiencies (PNUEN, PNUEP), increase relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, increase overall plant biomass, and reduce stress-related chlorophyll fluorescence.
+
+    7. **Results**
+
+    ```{r}
+
+    ```
+
+    \
+
+8.  
+
+```{r}
+sacc <- read_csv(here::here("data.hw5","knb-lter-hfr.109.18 (3)", "hf109-01-sarracenia.csv"))
+```
