@@ -13,7 +13,7 @@ execute:
 
 Ethan Blacher
 
-6/3/23
+6/5/23
 
 Homework 5
 
@@ -40,7 +40,7 @@ library(GGally)
 
     This study addressed the effects of prey availability on a litany of factors, such as the photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species. We tested the hypothesis that increased prey availability would stimulate Amass of one or more leaves, increase photosynthetic N- and P-use efficiencies (PNUEN, PNUEP), increase relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, increase overall plant biomass, and reduce stress-related chlorophyll fluorescence.
 
-    7. **Results**
+    7. **Methods**
 
     ```{r}
 
@@ -48,8 +48,38 @@ library(GGally)
 
     \
 
-8.  
+8.  **Results**
 
-```{r}
-sacc <- read_csv(here::here("data.hw5","knb-lter-hfr.109.18 (3)", "hf109-01-sarracenia.csv"))
+```{r Read_Data}
+sarr <- read_csv(here::here("data.hw5","knb-lter-hfr.109.18 (3)", "hf109-01-sarracenia.csv")) %>% 
+  #make the column names clear
+  clean_names() %>% 
+  #selecting the columns of interest
+  select(totmass, species, feedlevel, sla, chlorophyll, amass, num_lvs, num_phylls)
+```
+
+```{r Missing_Data_Viz}
+gg_miss_var(sarr)
+
+```
+
+```{r Drop_NA}
+sarr_subset <- sarr %>% 
+  drop_na(sla, chlorophyll, amass, num_lvs, num_phylls)
+```
+
+```{r Pearson_Viz}
+#calculate pearson's r only for numerical values only
+sarr_cor <- sarr_subset %>% 
+  select(feedlevel:num_phylls) %>% 
+  cor(method = "pearson")
+
+#creating a correlation plot
+corrplot(sarr_cor,
+         #change the shape of what's in the cells
+         #point to the left=negative relationship, right=positive relationship
+         method = "ellipse",
+         #adds the correlation values in black over the elipses
+         addCoef.col= "black")
+
 ```
