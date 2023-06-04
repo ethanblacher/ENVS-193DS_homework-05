@@ -19,4 +19,4 @@ Two plants of each Sarracenia species were allocated to one of six feeding level
 
 5. Data-specific information
 
-The data included species-level identification ("species" column) along with many other measuremnets and calculations, of which we are only interested in a few, as enumerated in the "General Information" section of this README. Additionally, there is some missing data, most notably from the "chlorophyll", "sla", and "amass" columns.
+The data included species-level identification ("species" column) along with many other measuremnets and calculations, of which we are only interested in a few, as enumerated in the "General Information" section of this README. Additionally, there is some missing data, most notably from the "chlorophyll", "sla", and "amass" columns. 
