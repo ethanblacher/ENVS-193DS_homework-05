@@ -36,25 +36,17 @@ library(GGally)
 
 6.  **Introduction**
 
-    This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora indigenous to North America.
-
-    The study asked a number of interesting questions, such as how prey availability affects Sarracenia growth and development, how prey capture is related to plant physiology, and what potential trade-offs may result from prey limiting. The researchers wanted to learn more about how Sarracenia responded to changing prey availability by testing these assumptions.
-
-    (Farnsworth and Ellison)
-
-    (Horner, Steele, Underwood, and Lingamfelter)
+    **This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora indigenous to North America (Farnsworth and Ellison).** **Pitcher plants are of interest to scientists becuase while plants typically contain an allometric relationship between nutrient and physiology (notably leaf size), referred to as 'world-wide leaf economics spectrum' (Farnsworth and Ellison) this near-universal rule does not apply to carnivorous plants (such as Sarracenia).** Due to the fact that carnivorous plants have low photosynthetic rates along with nitrogen and phosphorous use efficiency, their physiology has an outsized reliance on prey capture much of their leaf area is allocated to catching prey, which limits their N and P intake. Since prey capture is a leading indicator of carnivorous plant health, indicating survival, growth, and reproduction, it is a crucial metric to monitor (Horner, Steele, Underwood, and Lingamfelter). The study adressed the effects of prey availability on a litany of factors, using photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species as indicators. a number of interesting questions, such as how prey availability affects Sarracenia growth and development, how prey capture is related to plant physiology, and what potential trade-offs may result from prey limiting. The researchers wanted to learn more about how Sarracenia responded to changing prey availability by testing these assumptions. This resulted in the hypothesis that increased prey availability would increase Amass of one or more leaves, photosynthetic N- and P-use efficiencies (PNUEN, PNUEP), relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, overall plant biomass, and reduce stress-related chlorophyll fluorescence
 
     (Lorne)
 
-    This study addressed the effects of prey availability on a litany of factors, such as the photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species. We tested the hypothesis that increased prey availability would stimulate Amass of one or more leaves, increase photosynthetic N- and P-use efficiencies (PNUEN, PNUEP), increase relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, increase overall plant biomass, and reduce stress-related chlorophyll fluorescence.
-
     Citations
 
-    Farnsworth, Elizabeth J., and Aaron M. Ellison. \"Prey Availability Directly Affects Physiology, Growth, Nutrient Allocation and Scaling Relationships among Leaf Traits in 10 Carnivorous Plant Species.\" *Journal of Ecology*, Vol. 0, No. 0, 2007, https://doi.org/10.1111/j.1365-2745.2007.01313.x.
+    Farnsworth, Elizabeth J., and Aaron M. Ellison. \"Prey Availability Directly Affects Physiology, Growth, Nutrient Allocation and Scaling Relationships among Leaf Traits in 10 Carnivorous Plant Species.\" *Journal of Ecology*, Vol. 0, No. 0, 2007, https://doi.org/10.1111/j.1365-2745.2007.01313.x
 
-    Horner, John D., Steele, Cross J., Underwood, Christopher A., Lingamfelter, Daniel. "Age-Related Changes in Characteristics and Prey Capture of Seasonal Cohorts of Sarracenia alata Pitchers." *The American Midland Naturalist,* Vol. 167, No. 1, 2012,[https://doi.org/10.1674/0003-0031-167.1.13](#0).
+    Horner, John D., Steele, Cross J., Underwood, Christopher A., Lingamfelter, Daniel. "Age-Related Changes in Characteristics and Prey Capture of Seasonal Cohorts of Sarracenia alata Pitchers." *The American Midland Naturalist,* Vol. 167, No. 1, 2012,[https://doi.org/10.1674/0003-0031-167.1.13](#0)
 
-    Wolfe, Lorne M. "Feeding Behavior of a Plant: Differential Prey Capture in Old and New Leaves of the Pitcher Plant (Sarracenia purpurea)." *The American Midland Naturalist,* Vol. 106, No. 2, 1981, https://www.jstor.org/stable/2425172?origin=crossref.
+    Wolfe, Lorne M. "Feeding Behavior of a Plant: Differential Prey Capture in Old and New Leaves of the Pitcher Plant (Sarracenia purpurea)." *The American Midland Naturalist,* Vol. 106, No. 2, 1981, https://www.jstor.org/stable/2425172?origin=crossref
 
     7.  **Methods**
 
