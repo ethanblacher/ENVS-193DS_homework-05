@@ -6,7 +6,7 @@ The data folder (data.hw5) contains an unzipped folder (knb-lter-hfr.109.18 (3))
 
 2. Data and File Overview
 
-This README file gives an overview fo the files within the ENVS-193DS_homework-05 folder (a subset in the broader github folder). The Homework_5.qmd file contains the quarto markdown document which is the main document containing the code and short answers to the problem set. Additionally, there is a rendered document of the PDF version of the markdown (Homework_5.docx), both of which are in the "code.hw5" folder, a subset of the ENVS-193DS_homework-05 folder. Additionally, there is a folder called "data.hw5" (also subset of ENVS-193DS_homework-05) which houses a folder (knb-lter-hfr.109.18 (3)) containing data from the 2005 Harvard Forest experiment, notably the file "hf109-01-sarracenia.csv" which is used to test the hypothesis.
+This README file gives an overview fo the files within the ENVS-193DS_homework-05 folder (a subset in the broader github folder). The Homework_5.qmd file contains the quarto markdown document which is the main document containing the code and short answers to the problem set. Additionally, there is a rendered html of the PDF version of the markdown (Homework_5.html), both of which are in the "code.hw5" folder, a subset of the ENVS-193DS_homework-05 folder. Additionally, there is a folder called "data.hw5" (also subset of ENVS-193DS_homework-05) which houses a folder (knb-lter-hfr.109.18 (3)) containing data from the 2005 Harvard Forest experiment, notably the file "hf109-01-sarracenia.csv" which is used to test the hypothesis.
 
 3. Sharing and accessing information
 
