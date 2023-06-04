@@ -63,9 +63,9 @@ library(MuMIn)
     gg_miss_var(sarr) 
     ```
 
-    **Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.**
+    Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.
 
-    **Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.**
+    Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.
 
     d\.
 
@@ -89,9 +89,9 @@ library(MuMIn)
              addCoef.col= "black") 
     ```
 
-**Caption: To determine the relationship between the numerical variables in our data "sarr_subset", we calculcated pearson's r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.**
+Caption: To determine the relationship between the numerical variables in our data "sarr_subset", we calculcated pearson's r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.
 
-**Discussion: After calculating pearson's r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).**
+Discussion: After calculating pearson's r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).
 
 e\.
 
@@ -172,14 +172,14 @@ We evaluated muticollinarity by calculating the generalized variance inflation f
 k\.
 
 ```{r AIC-value}
-AICc(full)
+AICc(full_log)
 AICc(model_1)
 AICc(model_2)
 AICc(model_3)
-AICc(null)
+AICc(null_log)
 
-MuMIn::AICc(full, model_1, model_2, model_3, null)
-MuMIn::model.sel(full, model_1, model_2, model_3, null)
+MuMIn::AICc(full_log, model_1, model_2, model_3, null_log)
+MuMIn::model.sel(full_log, model_1, model_2, model_3, null_log)
 ```
 
 8.  **Results**
