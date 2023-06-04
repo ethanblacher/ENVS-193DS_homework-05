@@ -51,17 +51,16 @@ library(MuMIn)
 
     a\.
 
-    120 Sarracenia plants ranging in size from small, medium, and large were used for the study were collected from the sampling site: Harvard Forest Greenhouse (meta data). To conduct the study, plants were fed once a week for 7 weeks straight (meta data). Two plants of each Sarracenia species were assigned to one of six feeding levels in a regression design ranging from 0 - 0.25g of finely ground wasps per feeding (for small species), 0 - 0.5g (for species of intermediate sizes), and 0 - 1.0g (for large species) (meta data). "Aboveground size" and "Amass" were measured prior to commencing treatments, meanwhile all other parameters were measured during the duration of the study (meta data).
+    Two plants of each Sarracenia species were allocated to one of six feeding levels in a regression design ranging from 0 to a quarter gram of finely ground wasps per feeding (for small sized species), 0 to half a gram (for medium sized species), and 0 to one gram (for large sized species) (metadata). Plants were fed once a week for 7 weeks, with the above ground size and amass (mass-based light-saturated photosynthetic rate of youngest leaf) measured before beginning treatments (metadata). In total, the measurements contain twelve plants per ten different Sarracenia species, equaling 120 total plant observations (metadata).
 
     b\.
 
-    In order to organize the data after reading in the necessary packages, it is important to see what data was measured. To do so, the full data set was read in using the read_csv and the here function, then to make the names of the objects within the data set more clear and too only include the objects of interest the clean_names and select functions were applied. The data set now appears readable with the data set reporting values observed for totmass, species, feedlevel, sla, chlorophyll, amass, num_lvs, num_phylls
+    We organized the data by first importing the file into the "ENVS-193DS_homework-05" folder and placing it in the "data.hw5" folder. We then used the read_csv and here function to call the data into this document, which we then proceeded to clean the data by making the column names clear ('clean_names') and then selected only the parameters which were pertinent to this assignment ('select'). Later, we will drop the missing data using the 'drop.na' function.
 
     c\.
 
     ```{r Missing_Data_Viz}
-    gg_miss_var(sarr) + labs(
-      caption = "shows missing data" )
+    gg_miss_var(sarr) 
     ```
 
     **Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.**
@@ -183,9 +182,15 @@ MuMIn::AICc(full, model_1, model_2, model_3, null)
 MuMIn::model.sel(full, model_1, model_2, model_3, null)
 ```
 
-6.  **Results**
+8.  **Results**
 
-<!-- -->
+a\.
+
+b\.
+
+c\.
+
+d\.
 
 9.  **Citations**
 
