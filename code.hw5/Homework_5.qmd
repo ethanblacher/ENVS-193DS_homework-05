@@ -51,7 +51,7 @@ library(MuMIn)
 
     a\.
 
-    120 Sarracenia plants ranging from small, intermediate, and large species size were used for the study were collected from the sampling site: Harvard Forest Greenhouse (meta data). To conduct the study, plants were fed once a week for 7 weeks straight (meta data). Two plants of each Sarracenia species were assigned to one of six feeding levels in a regression design ranging from 0 - 0.25g of finely ground wasps per feeding (for small species), 0 - 0.5g (for species of intermediate sizes), and 0 - 1.0g (for large species) (meta data). "Aboveground size" and "Amass" were measured prior to commencing treatments, meanwhile all other parameters were measured during the duration of the study (meta data).
+    120 Sarracenia plants ranging in size from small, medium, and large were used for the study were collected from the sampling site: Harvard Forest Greenhouse (meta data). To conduct the study, plants were fed once a week for 7 weeks straight (meta data). Two plants of each Sarracenia species were assigned to one of six feeding levels in a regression design ranging from 0 - 0.25g of finely ground wasps per feeding (for small species), 0 - 0.5g (for species of intermediate sizes), and 0 - 1.0g (for large species) (meta data). "Aboveground size" and "Amass" were measured prior to commencing treatments, meanwhile all other parameters were measured during the duration of the study (meta data).
 
     b\.
 
@@ -64,9 +64,9 @@ library(MuMIn)
       caption = "shows missing data" )
     ```
 
-    Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns meaning that the only parameters without missing data are totmass, species, and feedlevel.
+    Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.
 
-    Discussion: Given that there are many missing data throughout multiple parameters, it is important to identify where the missing data is so that one can identify where bias within statistical analysis might interfere with results.
+    Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.
 
     d\.
 
@@ -90,9 +90,9 @@ library(MuMIn)
              addCoef.col= "black") 
     ```
 
-Caption: To determine the relationship between numerical variables in our dataset, we calculcated pearson's r and visually represented the correlation using a correlation plot. We compared the variables feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.
+Caption: To determine the relationship between the numerical variables in our data "sarr_subset", we calculcated pearson's r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.
 
-Discussion: After calculating pearson's r for the different variables within the plant_subset data frame, it was determined that none of the variables have a super strong linear association as the highest correlation value (r) was between amass and sla (0.32). The correlations between sla and feedlevel (-0.3), chlorophyll and sla (-0.22), num_lvs and feedlevel (-0.07), num_phylls and sla (-0.3), and num_phylls and chlorophyll (-0.24) are all negatively correlated; meanwhile, the correlations between chlorophyll and feedlevel (0.16), amass and feedlevel (0.13), num_phylls and feedlevel (0.25), sla and amass (0.32), and sla and num_lvs (0.09) are all postively correlated. It is also worthy to note that there was no correlation between amass and num_phylls (0).
+Discussion: After calculating pearson's r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).
 
 e\.
 
@@ -149,7 +149,7 @@ check_normality(model_3)
 check_heteroscedasticity(model_3)
 ```
 
-j\.
+The three models we chose to asses which predictor variables best model the response were chlorophyll, amass, and species.
 
 ```{r Variance_Inflation_Check}
 car::vif(full)
