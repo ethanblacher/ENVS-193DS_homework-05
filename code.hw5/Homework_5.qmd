@@ -163,6 +163,8 @@ check_heteroscedasticity(model_3)
 
 The three models we chose to asses which predictor variables best model the response were chlorophyll, amass, and species.
 
+j\.
+
 ```{r Variance_Inflation_Check}
 car::vif(full)
 ```
