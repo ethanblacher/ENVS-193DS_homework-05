@@ -35,59 +35,59 @@ library(GGally)
 library(MuMIn)
 ```
 
-6.  **Introduction**
+# **Introduction**
 
-    This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora indigenous to North America (Farnsworth and Ellison). Pitcher plants are of interest to scientists because while plants typically contain an allometric relationship between nutrient and physiology (notably leaf size), referred to as the 'world-wide leaf economics spectrum' (Farnsworth and Ellison) this near-universal rule does not apply to carnivorous plants (such as Sarracenia). Due to the fact that carnivorous plants have low photosynthetic rates along with nitrogen and phosphorous use efficiency, their physiology has an outsized reliance on prey capture (Farnsworth and Ellison). Since prey capture is a leading indicator of carnivorous plant health (indicating crucial metrics like survival, growth, and reproduction) it is important to test how Sarracenia react to changes in the abunace of prey (Horner, Steele, Underwood, and Lingamfelter). Additionally, predicting individual biomass of Sarracenia based on morphological, physiological, or taxonomic characteristics is valuable because it allows a better understanding of their growth patterns, resource allocation, and ecological roles, potentailly shedding light on effective management practices and their contributions to ecosystem services. The study addressed the effects of prey availability on a litany of factors, using photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species as indicators. A few interesting questions raised by this experiment is how prey density impacts Sarracenia growth and health, how does plant age alter their appetite and physiology, and ultimately when Sarracenia have unlimited resources whether their morphological and physiological allometric relationships resemble those of non-carnivorous plants (Lorne). This resulted in the hypothesis that increased prey availability would increase Amass, photosynthetic N- and P-use efficiencies, relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, overall plant biomass, and reduce stress-related chlorophyll fluorescence.
+This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora indigenous to North America (Farnsworth and Ellison). Pitcher plants are of interest to scientists because while plants typically contain an allometric relationship between nutrient and physiology (notably leaf size), referred to as the 'world-wide leaf economics spectrum' (Farnsworth and Ellison) this near-universal rule does not apply to carnivorous plants (such as Sarracenia). Due to the fact that carnivorous plants have low photosynthetic rates along with nitrogen and phosphorous use efficiency, their physiology has an outsized reliance on prey capture (Farnsworth and Ellison). Since prey capture is a leading indicator of carnivorous plant health (indicating crucial metrics like survival, growth, and reproduction) it is important to test how Sarracenia react to changes in the abunace of prey (Horner, Steele, Underwood, and Lingamfelter). Additionally, predicting individual biomass of Sarracenia based on morphological, physiological, or taxonomic characteristics is valuable because it allows a better understanding of their growth patterns, resource allocation, and ecological roles, potentailly shedding light on effective management practices and their contributions to ecosystem services. The study addressed the effects of prey availability on a litany of factors, using photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species as indicators. A few interesting questions raised by this experiment is how prey density impacts Sarracenia growth and health, how does plant age alter their appetite and physiology, and ultimately when Sarracenia have unlimited resources whether their morphological and physiological allometric relationships resemble those of non-carnivorous plants (Lorne). This resulted in the hypothesis that increased prey availability would increase Amass, photosynthetic N- and P-use efficiencies, relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, overall plant biomass, and reduce stress-related chlorophyll fluorescence.
 
-7.  **Methods**
+# **Methods**
 
-    ```{r Read_Data}
-    sarr <- read_csv(here::here("data.hw5","knb-lter-hfr.109.18 (3)", "hf109-01-sarracenia.csv")) %>% 
-      #make the column names clear
-      clean_names() %>% 
-      #selecting the columns of interest
-      select(totmass, species, feedlevel, sla, chlorophyll, amass, num_lvs, num_phylls)
-    ```
+```{r Read_Data}
+sarr <- read_csv(here::here("data.hw5","knb-lter-hfr.109.18 (3)", "hf109-01-sarracenia.csv")) %>% 
+  #make the column names clear
+  clean_names() %>% 
+  #selecting the columns of interest
+  select(totmass, species, feedlevel, sla, chlorophyll, amass, num_lvs, num_phylls)
+```
 
-    a\.
+a\.
 
-    Two plants of each Sarracenia species were allocated to one of six feeding levels in a regression design ranging from 0 to a quarter gram of finely ground wasps per feeding (for small sized species), 0 to half a gram (for medium sized species), and 0 to one gram (for large sized species) (metadata). Plants were fed once a week for 7 weeks, with the above ground size and amass (mass-based light-saturated photosynthetic rate of youngest leaf) measured before beginning treatments (metadata). In total, the measurements contain twelve plants per ten different Sarracenia species, equaling 120 total plant observations (metadata).
+Two plants of each Sarracenia species were allocated to one of six feeding levels in a regression design ranging from 0 to a quarter gram of finely ground wasps per feeding (for small sized species), 0 to half a gram (for medium sized species), and 0 to one gram (for large sized species) (metadata). Plants were fed once a week for 7 weeks, with the above ground size and amass (mass-based light-saturated photosynthetic rate of youngest leaf) measured before beginning treatments (metadata). In total, the measurements contain twelve plants per ten different Sarracenia species, equaling 120 total plant observations (metadata).
 
-    b\.
+b\.
 
-    We organized the data by first importing the file into the "ENVS-193DS_homework-05" folder and placing it in the "data.hw5" folder. We then used the read_csv and here function to call the data into this document, which we then proceeded to clean the data by making the column names clear ('clean_names') and then selected only the parameters which were pertinent to this assignment ('select'). Later, we will drop the missing data using the 'drop.na' function.
+We organized the data by first importing the file into the "ENVS-193DS_homework-05" folder and placing it in the "data.hw5" folder. We then used the read_csv and here function to call the data into this document, which we then proceeded to clean the data by making the column names clear ('clean_names') and then selected only the parameters which were pertinent to this assignment ('select'). Later, we will drop the missing data using the 'drop.na' function.
 
-    c\.
+c\.
 
-    ```{r Missing_Data_Viz}
-    gg_miss_var(sarr) 
-    ```
+```{r Missing_Data_Viz}
+gg_miss_var(sarr) 
+```
 
-    Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.
+Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.
 
-    Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.
+Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.
 
-    d\.
+d\.
 
-    ```{r Drop_NA}
-    sarr_subset <- sarr %>% 
-      drop_na(sla, chlorophyll, amass, num_lvs, num_phylls)
-    ```
+```{r Drop_NA}
+sarr_subset <- sarr %>% 
+  drop_na(sla, chlorophyll, amass, num_lvs, num_phylls)
+```
 
-    ```{r Pearson_Viz}
-    #calculate pearson's r only for numerical values only
-    sarr_cor <- sarr_subset %>% 
-      select(feedlevel:num_phylls) %>% 
-      cor(method = "pearson")
+```{r Pearson_Viz}
+#calculate pearson's r only for numerical values only
+sarr_cor <- sarr_subset %>% 
+  select(feedlevel:num_phylls) %>% 
+  cor(method = "pearson")
 
-    #creating a correlation plot
-    corrplot(sarr_cor,
-             #change the shape of what's in the cells
-             #point to the left=negative relationship, right=positive relationship
-             method = "ellipse",
-             #adds the correlation values in black over the elipses
-             addCoef.col= "black") 
-    ```
+#creating a correlation plot
+corrplot(sarr_cor,
+         #change the shape of what's in the cells
+         #point to the left=negative relationship, right=positive relationship
+         method = "ellipse",
+         #adds the correlation values in black over the elipses
+         addCoef.col= "black") 
+```
 
 Caption: To determine the relationship between the numerical variables in our data "sarr_subset", we calculcated pearson's r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.
 
@@ -184,20 +184,10 @@ MuMIn::AICc(full_log, model_1, model_2, model_3, null_log)
 MuMIn::model.sel(full_log, model_1, model_2, model_3, null_log)
 ```
 
-8.  **Results**
+# **Citations**
 
-a\.
+Farnsworth, Elizabeth J., and Aaron M. Ellison. "Prey Availability Directly Affects Physiology, Growth, Nutrient Allocation and Scaling Relationships among Leaf Traits in 10 Carnivorous Plant Species." *Journal of Ecology*, Vol. 0, No. 0, 2007, https://doi.org/10.1111/j.1365-2745.2007.01313.x
 
-b\.
+Horner, John D., Steele, Cross J., Underwood, Christopher A., Lingamfelter, Daniel. "Age-Related Changes in Characteristics and Prey Capture of Seasonal Cohorts of Sarracenia alata Pitchers." *The American Midland Naturalist,* Vol. 167, No. 1, 2012,[https://doi.org/10.1674/0003-0031-167.1.13](#0)
 
-c\.
-
-d\.
-
-9.  **Citations**
-
-    Farnsworth, Elizabeth J., and Aaron M. Ellison. "Prey Availability Directly Affects Physiology, Growth, Nutrient Allocation and Scaling Relationships among Leaf Traits in 10 Carnivorous Plant Species." *Journal of Ecology*, Vol. 0, No. 0, 2007, https://doi.org/10.1111/j.1365-2745.2007.01313.x
-
-    Horner, John D., Steele, Cross J., Underwood, Christopher A., Lingamfelter, Daniel. "Age-Related Changes in Characteristics and Prey Capture of Seasonal Cohorts of Sarracenia alata Pitchers." *The American Midland Naturalist,* Vol. 167, No. 1, 2012,[https://doi.org/10.1674/0003-0031-167.1.13](#0)
-
-    Wolfe, Lorne M. "Feeding Behavior of a Plant: Differential Prey Capture in Old and New Leaves of the Pitcher Plant (Sarracenia purpurea)." *The American Midland Naturalist,* Vol. 106, No. 2, 1981, https://www.jstor.org/stable/2425172?origin=crossref
+Wolfe, Lorne M. "Feeding Behavior of a Plant: Differential Prey Capture in Old and New Leaves of the Pitcher Plant (Sarracenia purpurea)." *The American Midland Naturalist,* Vol. 106, No. 2, 1981, https://www.jstor.org/stable/2425172?origin=crossref
