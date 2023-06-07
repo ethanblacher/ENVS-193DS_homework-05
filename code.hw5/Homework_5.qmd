@@ -132,7 +132,7 @@ h\.
 
 Discussion: After testing for normality and homoscedasitity for the full model, we found that the data is non-normal and heteroscedastic. We used a log transformation to attempt to correct the skewed nature of the data, and order after the transformation we manipulated the residuals so they were normally distributed and homoscedastic.
 
-```{r}
+```{r log_transformation}
 null_log <- lm(log(totmass)~1, data = sarr_subset)
 full_log <- lm(log(totmass)~ species + feedlevel + sla + chlorophyll + amass + num_lvs + num_phylls, data= sarr_subset)
 
@@ -142,6 +142,8 @@ check_heteroscedasticity(full_log)
 ```
 
 i\.
+
+Discussion: To determine which variables best predicts biomass (totmass), we chose three linear models using predicter variables chlorophyll, amass, and species respectively. The model comparing species as predictor variable and totmass as the response variable was found to be normal and homoscedastic. The models comparing chlorophyll and amass to predict totmass, respectively, both were found to be non-normal but homoscedastic. We chose these variables because species, chlorophyll content of youngest leaf, and the photosynthetic rate of youngest leaf could all potentially impact the total mass of individual plants. For instance, there is fluctuations within different species, and chlorophyll levels along with photosynthetic rate are essential metrics in evaluating how a plant converts light into energy, which ultimately impacts biomass.
 
 ```{r Model}
 model_1 <- lm(log(totmass)~chlorophyll, data= sarr_subset)
@@ -161,17 +163,17 @@ check_normality(model_3)
 check_heteroscedasticity(model_3)
 ```
 
-The three models we chose to asses which predictor variables best model the response were chlorophyll, amass, and species.
-
 j\.
+
+Discussion: We assesed muticollinearity by determining the variance inflation factor and concluded that this model didn't display multicolinearity because there weren't any values greater than 5.
 
 ```{r Variance_Inflation_Check}
 car::vif(full)
 ```
 
-We evaluated muticollinarity by calculating the generalized variance inflation factor and determined that this model didn't display any multicolinearity because no values were larger than 5.
-
 k\.
+
+Discussion: After comparing the models using the Akaike's Information Criterion, we chose the model with the lowest value, which was the full_log model.
 
 ```{r AIC-value}
 AICc(full_log)
@@ -183,6 +185,8 @@ AICc(null_log)
 MuMIn::AICc(full_log, model_1, model_2, model_3, null_log)
 MuMIn::model.sel(full_log, model_1, model_2, model_3, null_log)
 ```
+
+# Results
 
 # **Citations**
 
