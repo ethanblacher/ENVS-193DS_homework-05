@@ -185,7 +185,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(sarr) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#see which columns have missing data, and the amount per column</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(sarr) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/Missing_Data_Viz-1.png" class="img-fluid" width="672"></p>
@@ -198,7 +199,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sarr_subset <span class="ot">&lt;-</span> sarr <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(sla, chlorophyll, amass, num_lvs, num_phylls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#create a new dataset of sarr, which drops the missing data</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(sla, chlorophyll, amass, num_lvs, num_phylls)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -228,8 +230,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>sarr_subset <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species<span class="sc">:</span>num_phylls) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#selects columns from species to num_phylls, which only excludes totmass (which is the resonse)</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species<span class="sc">:</span>num_phylls) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggpairs</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/pair-plot-1.png" class="img-fluid" width="672"></p>
@@ -241,8 +244,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>null <span class="ot">&lt;-</span> <span class="fu">lm</span>(totmass <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span> sarr_subset)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">lm</span>(totmass <span class="sc">~</span> species <span class="sc">+</span> feedlevel <span class="sc">+</span> sla <span class="sc">+</span> chlorophyll <span class="sc">+</span> amass <span class="sc">+</span> num_lvs <span class="sc">+</span> num_phylls, <span class="at">data=</span> sarr_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#null linear model which assumes no relationship, with data from the updated frame without missing values</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>null <span class="ot">&lt;-</span> <span class="fu">lm</span>(totmass <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data=</span> sarr_subset)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#full linear model which assumes a relationshup with all the variables, with data from the updated frame without missing values</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">lm</span>(totmass <span class="sc">~</span> species <span class="sc">+</span> feedlevel <span class="sc">+</span> sla <span class="sc">+</span> chlorophyll <span class="sc">+</span> amass <span class="sc">+</span> num_lvs <span class="sc">+</span> num_phylls, <span class="at">data=</span> sarr_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>g.</p>
@@ -250,8 +255,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plots have 2 rows and 2 columns</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the full model</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/Viz_Check-1.png" class="img-fluid" width="672"></p>
@@ -260,7 +267,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#checking for normality and homoscedasticity</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_normality</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Warning: Non-normality of residuals detected (p &lt; .001).</code></pre>
@@ -278,10 +286,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>null_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> sarr_subset)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>full_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span> species <span class="sc">+</span> feedlevel <span class="sc">+</span> sla <span class="sc">+</span> chlorophyll <span class="sc">+</span> amass <span class="sc">+</span> num_lvs <span class="sc">+</span> num_phylls, <span class="at">data=</span> sarr_subset)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tansform the linear models via a log transformation</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>null_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span><span class="dv">1</span>, <span class="at">data =</span> sarr_subset)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>full_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span> species <span class="sc">+</span> feedlevel <span class="sc">+</span> sla <span class="sc">+</span> chlorophyll <span class="sc">+</span> amass <span class="sc">+</span> num_lvs <span class="sc">+</span> num_phylls, <span class="at">data=</span> sarr_subset)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#plotting the transformed model, while also checking for normality and homoscedasticity</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/log_transformation-1.png" class="img-fluid" width="672"></p>
@@ -315,15 +325,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span>chlorophyll, <span class="at">data=</span> sarr_subset)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span>amass, <span class="at">data =</span> sarr_subset)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>model_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span>species, <span class="at">data =</span> sarr_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#created new models (with log transformations) using different predictor variables, all from the data frame without missing values</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span>chlorophyll, <span class="at">data=</span> sarr_subset)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>model_2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span>amass, <span class="at">data =</span> sarr_subset)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>model_3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">log</span>(totmass)<span class="sc">~</span>species, <span class="at">data =</span> sarr_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plotted all the models and checked for normality and homoscesdasticity</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/Check-1.png" class="img-fluid" width="672"></p>
@@ -413,11 +425,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>j.</p>
-<p>Discussion: We assesed muticollinearity by determining the variance inflation factor and concluded that this model didn’t display multicolinearity because there weren’t any values greater than 5.</p>
+<p>Discussion: We assessed muticollinearity by determining the variance inflation factor and concluded that this model didn’t display multicollinearity because there weren’t any values greater than 5.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">vif</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">#check for multicollinearity</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>car<span class="sc">::</span><span class="fu">vif</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>                 GVIF Df GVIF^(1/(2*Df))
@@ -435,7 +448,8 @@ num_phylls   2.995510  1        1.730754</code></pre>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co">#comparing models using Akaike's Information Criterion</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 133.9424</code></pre>
@@ -504,6 +518,109 @@ Models ranked by AICc(x) </code></pre>
 </section>
 <section id="results" class="level1">
 <h1>Results</h1>
+<p>a. The full_log model best predicted the totmass because it was the model with the lowest AIC value, at 133.94. The full_log model incorporated all of the variables into one model and while still as simple as the models we created was a better predictor (r^2 = .8687, F(15, 87) = 38.38, p &lt; .001).</p>
+<p>b. With other factors held constant, the full_log model indicates that the individual variable that has a statistically significant relationship with totmass is num.lvs, with a t-value of about 4 (p&lt;.001). Individual species can have statistically significant relationships as well with totmass, such as leucophylla and flava, while other species not so much, such as psittacina.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log(totmass) ~ species + feedlevel + sla + chlorophyll + 
+    amass + num_lvs + num_phylls, data = sarr_subset)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.88872 -0.20811  0.02825  0.24218  0.78287 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        -1.339043   0.597727  -2.240 0.027624 *  
+speciesalata        1.113163   0.184021   6.049 3.56e-08 ***
+speciesflava        1.404562   0.262955   5.341 7.29e-07 ***
+speciesjonesii      0.319652   0.196426   1.627 0.107281    
+speciesleucophylla  1.709035   0.227608   7.509 4.88e-11 ***
+speciesminor        0.389310   0.187903   2.072 0.041239 *  
+speciespsittacina  -1.645198   0.207035  -7.946 6.36e-12 ***
+speciespurpurea    -0.364348   0.254380  -1.432 0.155643    
+speciesrosea       -0.947383   0.260495  -3.637 0.000467 ***
+speciesrubra        0.875342   0.196361   4.458 2.46e-05 ***
+feedlevel          -0.474255   0.234493  -2.022 0.046199 *  
+sla                -0.002493   0.001160  -2.149 0.034430 *  
+chlorophyll         0.004368   0.001189   3.672 0.000414 ***
+amass               0.002338   0.002988   0.782 0.436166    
+num_lvs             0.091764   0.022413   4.094 9.46e-05 ***
+num_phylls         -0.039585   0.051714  -0.765 0.446068    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.413 on 87 degrees of freedom
+Multiple R-squared:  0.8687,    Adjusted R-squared:  0.8461 
+F-statistic: 38.38 on 15 and 87 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(full_log, <span class="at">conf.int =</span> <span class="cn">TRUE</span>, <span class="at">conf.level =</span> .<span class="dv">95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 7
+   term               estimate std.error statistic  p.value conf.low conf.high
+   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 (Intercept)        -1.34      0.598      -2.24  2.76e- 2 -2.53    -0.151   
+ 2 speciesalata        1.11      0.184       6.05  3.56e- 8  0.747    1.48    
+ 3 speciesflava        1.40      0.263       5.34  7.29e- 7  0.882    1.93    
+ 4 speciesjonesii      0.320     0.196       1.63  1.07e- 1 -0.0708   0.710   
+ 5 speciesleucophylla  1.71      0.228       7.51  4.88e-11  1.26     2.16    
+ 6 speciesminor        0.389     0.188       2.07  4.12e- 2  0.0158   0.763   
+ 7 speciespsittacina  -1.65      0.207      -7.95  6.36e-12 -2.06    -1.23    
+ 8 speciespurpurea    -0.364     0.254      -1.43  1.56e- 1 -0.870    0.141   
+ 9 speciesrosea       -0.947     0.260      -3.64  4.67e- 4 -1.47    -0.430   
+10 speciesrubra        0.875     0.196       4.46  2.46e- 5  0.485    1.27    
+11 feedlevel          -0.474     0.234      -2.02  4.62e- 2 -0.940   -0.00818 
+12 sla                -0.00249   0.00116    -2.15  3.44e- 2 -0.00480 -0.000187
+13 chlorophyll         0.00437   0.00119     3.67  4.14e- 4  0.00200  0.00673 
+14 amass               0.00234   0.00299     0.782 4.36e- 1 -0.00360  0.00828 
+15 num_lvs             0.0918    0.0224      4.09  9.46e- 5  0.0472   0.136   
+16 num_phylls         -0.0396    0.0517     -0.765 4.46e- 1 -0.142    0.0632  </code></pre>
+</div>
+</div>
+<p>c.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co">#model_predict is a new object which is used to back transform estimates using ggpredict</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>model_predict <span class="ot">&lt;-</span> <span class="fu">ggpredict</span>(full_log, <span class="at">terms=</span> <span class="st">"num_lvs"</span>, <span class="at">back.transform =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_predict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>       x            predicted        std.error         conf.low     
+ Min.   : 2.000   Min.   : 5.303   Min.   :0.1263   Min.   : 3.762  
+ 1st Qu.: 5.250   1st Qu.: 7.151   1st Qu.:0.1330   1st Qu.: 5.477  
+ Median : 8.500   Median : 9.638   Median :0.1486   Median : 7.448  
+ Mean   : 8.643   Mean   :10.552   Mean   :0.1581   Mean   : 7.573  
+ 3rd Qu.:11.750   3rd Qu.:12.984   3rd Qu.:0.1707   3rd Qu.: 9.415  
+ Max.   :17.000   Max.   :21.003   Max.   :0.2520   Max.   :12.727  
+   conf.high      group 
+ Min.   : 7.474   1:14  
+ 1st Qu.: 9.336         
+ Median :12.473         
+ Mean   :14.797         
+ 3rd Qu.:17.907         
+ Max.   :34.662         </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot model_predict</span></span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_predict, <span class="at">add.data=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="Homework_5_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Caption: This plot illustrates that as num.lvs (total number of pitchers and phyllodes produced by each plant) increases, the totmass (biomass) tends to increases as well. Compared to the five other numeric variables num.lvs is definitely the best predictor of Sarracenia biomass.</p>
+<p>d. Discussion: This model indicates that a one-unit increase in num.lvs will cause totmass to increase by approximately 0.091763935. Essentially, holding other factors constant one more pitcher or phyllode will cause biomass to grow by nearly a tenth of a gram.</p>
 </section>
 <section id="citations" class="level1">
 <h1><strong>Citations</strong></h1>
