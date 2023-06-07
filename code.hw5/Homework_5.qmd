@@ -59,15 +59,17 @@ We organized the data by first importing the file into the "ENVS-193DS_homework-
 
 c\.
 
+Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.
+
 ```{r Missing_Data_Viz}
 gg_miss_var(sarr) 
 ```
 
 Caption: The gg_miss_var function highlights missing data within the "sarr" data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.
 
-Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.
-
 d\.
+
+Discussion: After calculating pearson's r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).
 
 ```{r Drop_NA}
 sarr_subset <- sarr %>% 
@@ -91,9 +93,9 @@ corrplot(sarr_cor,
 
 Caption: To determine the relationship between the numerical variables in our data "sarr_subset", we calculcated pearson's r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.
 
-Discussion: After calculating pearson's r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).
-
 e\.
+
+Discussion: After visualizing the relationships between different variables in pearson's r, the ggpair function shows the relationships between different variables depending on what type of data the variable is. Box plots are used to represent the relationships between species (categorical) and the other variables (continuous or discrete), while scatter plots and line graphs show the relationships between continuous and discrete variables.
 
 ```{r pair-plot}
 sarr_subset %>% 
@@ -101,20 +103,20 @@ sarr_subset %>%
   ggpairs() 
 ```
 
-Caption: In order to visualize the relationship between the variables the ggpairs function was applied. The ggpairs function builds a scatterplot matrix that displays scatterplots of each pair of numeric values, while also displaying pearson's r on the right and the variable distribution on the diagonal.
-
-Discussion: After visualizing the relationships between each pair of variables, the ggpair function reveals the different relationships between different varibales depending on the type of data each variable is. Box plots are used to represent relationships between species, categorical data, and the rest of the variables, continuous or discrete. The scatter plots and line graphs highlight relationships between continuous and discrete data.
+Caption: The ggpairs function was implemented to visualize the relationship between the different types of variables. ggpairs builds a scatterplot matrix that displays scatterplots of each pair of numeric data, the variable distribution on the diagonal, and pearson's r on the right.
 
 f\.
+
+Discussion: To determine how the many variables predict biomass (totmass), we make multiple linear models. The null model makes a regression that assumes no relationship between totmass and the predictor variables. Meanwhile, the full model makes a regression that assumes there is a relationship between totmass and the predictor variables in their ability to predict biomass.
 
 ```{r null-and-full-models}
 null <- lm(totmass ~ 1, data= sarr_subset)
 full <- lm(totmass ~ species + feedlevel + sla + chlorophyll + amass + num_lvs + num_phylls, data= sarr_subset)
 ```
 
-To determine how species and physiological characteristics perditc biomass, we fit multiple linear models. The null model creates a regression model that assumes no realtionship between totmass and the predictor variables. On the other hand, the full model creates a regression model that assumes a relationship between totmass and the predictor variables in order to predict biomass.
-
 g\.
+
+Discussion: We visually checked normality and homoscedasicty using diagnostic plots for the full model and found that while the data appears normal, it does not appear homoscedastic because it is not scattered randomly. We also tested for normality using the Shaprio-Wilk test and found non-normality of residuals. Additionally, we tested for homoscedasticity using the Breusch-Pagan test and found non-constant error variance which proved that the data is not homoscedstic but rather heteroscedastic.
 
 ```{r Viz_Check}
 par(mfrow = c(2,2))
@@ -126,9 +128,9 @@ check_normality(full)
 check_heteroscedasticity(full)
 ```
 
-We visually assesed normaility and homoskedascitity using diagnostic plots for the full model and found that the data is appears normal, but not homoskedastic because the data is not scattered entirely random. We also tested for normality using the Shaprio-Wilk test and found non-normality of residuals. We then retested for homoscedasticity using the Breusch-Pagan test and detected non-constant error variance meaning the data is heteroscedastic.
-
 h\.
+
+Discussion: After testing for normality and homoscedasitity for the full model, we found that the data is non-normal and heteroscedastic. We used a log transformation to attempt to correct the skewed nature of the data, and order after the transformation we manipulated the residuals so they were normally distributed and homoscedastic.
 
 ```{r}
 null_log <- lm(log(totmass)~1, data = sarr_subset)
@@ -138,8 +140,6 @@ plot(full_log)
 check_normality(full_log)
 check_heteroscedasticity(full_log)
 ```
-
-After visually assesing normaility and homoscedascitity using diagnostic plots for the full model, we found that the data appeared to be non-normal and heteroscedasitic. In order to reduce the skewness of variable of interest, we applied a log transformation. Once we did this we were able to manipulate the residuals in a manner that reported normal distribution and homoscedastic variance.
 
 i\.
 
