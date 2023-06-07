@@ -104,7 +104,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
 <div id="quarto-sidebar-toc-left" class="sidebar toc-left">
-  
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><strong>Introduction</strong></a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><strong>Methods</strong></a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations"><strong>Citations</strong></a></li>
+  </ul>
+</nav>
 </div>
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
 </div>
@@ -130,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ethan Blacher</p>
 <p>6/5/23</p>
 <p>Homework 5</p>
+<p>Github repository: https://github.com/ethanblacher/ENVS-193DS_homework-05.git</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -150,10 +160,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MuMIn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<ol start="6" type="1">
-<li><p><strong>Introduction</strong></p>
-<p>This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora indigenous to North America (Farnsworth and Ellison). Pitcher plants are of interest to scientists because while plants typically contain an allometric relationship between nutrient and physiology (notably leaf size), referred to as the ‘world-wide leaf economics spectrum’ (Farnsworth and Ellison) this near-universal rule does not apply to carnivorous plants (such as Sarracenia). Due to the fact that carnivorous plants have low photosynthetic rates along with nitrogen and phosphorous use efficiency, their physiology has an outsized reliance on prey capture (Farnsworth and Ellison). Since prey capture is a leading indicator of carnivorous plant health (indicating crucial metrics like survival, growth, and reproduction) it is important to test how Sarracenia react to changes in the abunace of prey (Horner, Steele, Underwood, and Lingamfelter). Additionally, predicting individual biomass of Sarracenia based on morphological, physiological, or taxonomic characteristics is valuable because it allows a better understanding of their growth patterns, resource allocation, and ecological roles, potentailly shedding light on effective management practices and their contributions to ecosystem services. The study addressed the effects of prey availability on a litany of factors, using photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species as indicators. A few interesting questions raised by this experiment is how prey density impacts Sarracenia growth and health, how does plant age alter their appetite and physiology, and ultimately when Sarracenia have unlimited resources whether their morphological and physiological allometric relationships resemble those of non-carnivorous plants (Lorne). This resulted in the hypothesis that increased prey availability would increase Amass, photosynthetic N- and P-use efficiencies, relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, overall plant biomass, and reduce stress-related chlorophyll fluorescence.</p></li>
-<li><p><strong>Methods</strong></p>
+<section id="introduction" class="level1">
+<h1><strong>Introduction</strong></h1>
+<p>This analysis revolves around a study conducted at Harvard Forest in 2005, which explored the impact of prey availability on Sarracenia physiology. Sarracenia, also known as pitcher plants, are carnivorous wetland flora indigenous to North America (Farnsworth and Ellison). Pitcher plants are of interest to scientists because while plants typically contain an allometric relationship between nutrient and physiology (notably leaf size), referred to as the ‘world-wide leaf economics spectrum’ (Farnsworth and Ellison) this near-universal rule does not apply to carnivorous plants (such as Sarracenia). Due to the fact that carnivorous plants have low photosynthetic rates along with nitrogen and phosphorous use efficiency, their physiology has an outsized reliance on prey capture (Farnsworth and Ellison). Since prey capture is a leading indicator of carnivorous plant health (indicating crucial metrics like survival, growth, and reproduction) it is important to test how Sarracenia react to changes in the abunace of prey (Horner, Steele, Underwood, and Lingamfelter). Additionally, predicting individual biomass of Sarracenia based on morphological, physiological, or taxonomic characteristics is valuable because it allows a better understanding of their growth patterns, resource allocation, and ecological roles, potentailly shedding light on effective management practices and their contributions to ecosystem services. The study addressed the effects of prey availability on a litany of factors, using photosynthetic rate (Amass), chlorophyll fluorescence, growth, architecture, and foliar nutrient and chlorophyll content of ten pitcher plant (Sarracenia) species as indicators. A few interesting questions raised by this experiment is how prey density impacts Sarracenia growth and health, how does plant age alter their appetite and physiology, and ultimately when Sarracenia have unlimited resources whether their morphological and physiological allometric relationships resemble those of non-carnivorous plants (Lorne). This resulted in the hypothesis that increased prey availability would increase Amass, photosynthetic N- and P-use efficiencies, relative biomass allocation to photosynthetically efficient, non-predatory phyllodes rather than pitchers, overall plant biomass, and reduce stress-related chlorophyll fluorescence.</p>
+</section>
+<section id="methods" class="level1">
+<h1><strong>Methods</strong></h1>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -165,23 +177,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </details>
 </div>
 <p>a.</p>
-<p>120 Sarracenia plants ranging in size from small, medium, and large were used for the study were collected from the sampling site: Harvard Forest Greenhouse (meta data). To conduct the study, plants were fed once a week for 7 weeks straight (meta data). Two plants of each Sarracenia species were assigned to one of six feeding levels in a regression design ranging from 0 - 0.25g of finely ground wasps per feeding (for small species), 0 - 0.5g (for species of intermediate sizes), and 0 - 1.0g (for large species) (meta data). “Aboveground size” and “Amass” were measured prior to commencing treatments, meanwhile all other parameters were measured during the duration of the study (meta data).</p>
+<p>Two plants of each Sarracenia species were allocated to one of six feeding levels in a regression design ranging from 0 to a quarter gram of finely ground wasps per feeding (for small sized species), 0 to half a gram (for medium sized species), and 0 to one gram (for large sized species) (metadata). Plants were fed once a week for 7 weeks, with the above ground size and amass (mass-based light-saturated photosynthetic rate of youngest leaf) measured before beginning treatments (metadata). In total, the measurements contain twelve plants per ten different Sarracenia species, equaling 120 total plant observations (metadata).</p>
 <p>b.</p>
-<p>In order to organize the data after reading in the necessary packages, it is important to see what data was measured. To do so, the full data set was read in using the read_csv and the here function, then to make the names of the objects within the data set more clear and too only include the objects of interest the clean_names and select functions were applied. The data set now appears readable with the data set reporting values observed for totmass, species, feedlevel, sla, chlorophyll, amass, num_lvs, num_phylls</p>
+<p>We organized the data by first importing the file into the “ENVS-193DS_homework-05” folder and placing it in the “data.hw5” folder. We then used the read_csv and here function to call the data into this document, which we then proceeded to clean the data by making the column names clear (‘clean_names’) and then selected only the parameters which were pertinent to this assignment (‘select’). Later, we will drop the missing data using the ‘drop.na’ function.</p>
 <p>c.</p>
+<p>Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(sarr) <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"shows missing data"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gg_miss_var</span>(sarr) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/Missing_Data_Viz-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p><strong>Caption: The gg_miss_var function highlights missing data within the “sarr” data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.</strong></p>
-<p><strong>Discussion: Since there is a decent amount of missing data in a few parameters, it is important to identify where there is missing data to identify where bias and errors in the analysis might appear and skew the results.</strong></p>
+<p>Caption: The gg_miss_var function highlights missing data within the “sarr” data set. The plot highlights missing data in the chlorophyll, amass, sla, num_phylls, and num_lvs columns, leaving only totmass, species, and feedlevel as columns without missing data.</p>
 <p>d.</p>
+<p>Discussion: After calculating pearson’s r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -208,11 +220,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <p><img src="Homework_5_files/figure-html/Pearson_Viz-1.png" class="img-fluid" width="672"></p>
 </div>
-</div></li>
-</ol>
-<p><strong>Caption: To determine the relationship between the numerical variables in our data “sarr_subset”, we calculcated pearson’s r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.</strong></p>
-<p><strong>Discussion: After calculating pearson’s r, it is apparent that none of the variables a strong correlation, since the highest value was only .32 between amass and sla. The correlations between sla and feedlevel, chlorophyll and sla, num_lvs and feedlevel, num_phylls and sla, and num_phylls and chlorophyll all had small, negative r values. On the other hand, chlorophyll and feedlevel, amass and feedlevel, num_phylls and feedlevel, and sla and num_lvs all have small, postive r values, with their being no correlation between amass and num_phylls (r=0).</strong></p>
+</div>
+<p>Caption: To determine the relationship between the numerical variables in our data “sarr_subset”, we calculcated pearson’s r and highlighted the correlation using a correlation plot. The numerical variables we compared were feedlevel, sla, chlorophyll, amass, num_lvs, and num_phylls.</p>
 <p>e.</p>
+<p>Discussion: After visualizing the relationships between different variables in pearson’s r, the ggpair function shows the relationships between different variables depending on what type of data the variable is. Box plots are used to represent the relationships between species (categorical) and the other variables (continuous or discrete), while scatter plots and line graphs show the relationships between continuous and discrete variables.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -224,9 +235,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Homework_5_files/figure-html/pair-plot-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Caption: In order to visualize the relationship between the variables the ggpairs function was applied. The ggpairs function builds a scatterplot matrix that displays scatterplots of each pair of numeric values, while also displaying pearson’s r on the right and the variable distribution on the diagonal.</p>
-<p>Discussion: After visualizing the relationships between each pair of variables, the ggpair function reveals the different relationships between different varibales depending on the type of data each variable is. Box plots are used to represent relationships between species, categorical data, and the rest of the variables, continuous or discrete. The scatter plots and line graphs highlight relationships between continuous and discrete data.</p>
+<p>Caption: The ggpairs function was implemented to visualize the relationship between the different types of variables. ggpairs builds a scatterplot matrix that displays scatterplots of each pair of numeric data, the variable distribution on the diagonal, and pearson’s r on the right.</p>
 <p>f.</p>
+<p>Discussion: To determine how the many variables predict biomass (totmass), we make multiple linear models. The null model makes a regression that assumes no relationship between totmass and the predictor variables. Meanwhile, the full model makes a regression that assumes there is a relationship between totmass and the predictor variables in their ability to predict biomass.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -234,8 +245,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>full <span class="ot">&lt;-</span> <span class="fu">lm</span>(totmass <span class="sc">~</span> species <span class="sc">+</span> feedlevel <span class="sc">+</span> sla <span class="sc">+</span> chlorophyll <span class="sc">+</span> amass <span class="sc">+</span> num_lvs <span class="sc">+</span> num_phylls, <span class="at">data=</span> sarr_subset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>To determine how species and physiological characteristics perditc biomass, we fit multiple linear models. The null model creates a regression model that assumes no realtionship between totmass and the predictor variables. On the other hand, the full model creates a regression model that assumes a relationship between totmass and the predictor variables in order to predict biomass.</p>
 <p>g.</p>
+<p>Discussion: We visually checked normality and homoscedasicty using diagnostic plots for the full model and found that while the data appears normal, it does not appear homoscedastic because it is not scattered randomly. We also tested for normality using the Shaprio-Wilk test and found non-normality of residuals. Additionally, we tested for homoscedasticity using the Breusch-Pagan test and found non-constant error variance which proved that the data is not homoscedstic but rather heteroscedastic.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -262,8 +273,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>Warning: Heteroscedasticity (non-constant error variance) detected (p &lt; .001).</code></pre>
 </div>
 </div>
-<p>We visually assesed normaility and homoskedascitity using diagnostic plots for the full model and found that the data is appears normal, but not homoskedastic because the data is not scattered entirely random. We also tested for normality using the Shaprio-Wilk test and found non-normality of residuals. We then retested for homoscedasticity using the Breusch-Pagan test and detected non-constant error variance meaning the data is heteroscedastic.</p>
 <p>h.</p>
+<p>Discussion: After testing for normality and homoscedasitity for the full model, we found that the data is non-normal and heteroscedastic. We used a log transformation to attempt to correct the skewed nature of the data, and order after the transformation we manipulated the residuals so they were normally distributed and homoscedastic.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -273,16 +284,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="Homework_5_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<p><img src="Homework_5_files/figure-html/log_transformation-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="Homework_5_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
+<p><img src="Homework_5_files/figure-html/log_transformation-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="Homework_5_files/figure-html/unnamed-chunk-1-3.png" class="img-fluid" width="672"></p>
+<p><img src="Homework_5_files/figure-html/log_transformation-3.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="Homework_5_files/figure-html/unnamed-chunk-1-4.png" class="img-fluid" width="672"></p>
+<p><img src="Homework_5_files/figure-html/log_transformation-4.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
@@ -299,8 +310,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>OK: Error variance appears to be homoscedastic (p = 0.071).</code></pre>
 </div>
 </div>
-<p>After visually assesing normaility and homoscedascitity using diagnostic plots for the full model, we found that the data appeared to be non-normal and heteroscedasitic. In order to reduce the skewness of variable of interest, we applied a log transformation. Once we did this we were able to manipulate the residuals in a manner that reported normal distribution and homoscedastic variance.</p>
 <p>i.</p>
+<p>Discussion: To determine which variables best predicts biomass (totmass), we chose three linear models using predicter variables chlorophyll, amass, and species respectively. The model comparing species as predictor variable and totmass as the response variable was found to be normal and homoscedastic. The models comparing chlorophyll and amass to predict totmass, respectively, both were found to be non-normal but homoscedastic. We chose these variables because species, chlorophyll content of youngest leaf, and the photosynthetic rate of youngest leaf could all potentially impact the total mass of individual plants. For instance, there is fluctuations within different species, and chlorophyll levels along with photosynthetic rate are essential metrics in evaluating how a plant converts light into energy, which ultimately impacts biomass.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -401,7 +412,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>OK: Error variance appears to be homoscedastic (p = 0.100).</code></pre>
 </div>
 </div>
-<p>The three models we chose to asses which predictor variables best model the response were chlorophyll, amass, and species.</p>
+<p>j.</p>
+<p>Discussion: We assesed muticollinearity by determining the variance inflation factor and concluded that this model didn’t display multicolinearity because there weren’t any values greater than 5.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -418,15 +430,15 @@ num_lvs      2.813855  1        1.677455
 num_phylls   2.995510  1        1.730754</code></pre>
 </div>
 </div>
-<p>We evaluated muticollinarity by calculating the generalized variance inflation factor and determined that this model didn’t display any multicolinearity because no values were larger than 5.</p>
 <p>k.</p>
+<p>Discussion: After comparing the models using the Akaike’s Information Criterion, we chose the model with the lowest value, which was the full_log model.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(full_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 497.3964</code></pre>
+<pre><code>[1] 133.9424</code></pre>
 </div>
 <details>
 <summary>Code</summary>
@@ -451,54 +463,54 @@ num_phylls   2.995510  1        1.730754</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(null)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AICc</span>(null_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 630.4028</code></pre>
+<pre><code>[1] 306.0028</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>MuMIn<span class="sc">::</span><span class="fu">AICc</span>(full, model_1, model_2, model_3, null)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>MuMIn<span class="sc">::</span><span class="fu">AICc</span>(full_log, model_1, model_2, model_3, null_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>        df     AICc
-full    17 497.3964
-model_1  3 307.3680
-model_2  3 308.0364
-model_3 11 157.5751
-null     2 630.4028</code></pre>
+<pre><code>         df     AICc
+full_log 17 133.9424
+model_1   3 307.3680
+model_2   3 308.0364
+model_3  11 157.5751
+null_log  2 306.0028</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>MuMIn<span class="sc">::</span><span class="fu">model.sel</span>(full, model_1, model_2, model_3, null)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>MuMIn<span class="sc">::</span><span class="fu">model.sel</span>(full_log, model_1, model_2, model_3, null_log)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Model selection table 
-          (Int)        ams      chl    fdl num_lvs   num_phy       sla spc df
-model_3  0.8836                                                          + 11
-model_1  0.4650            0.001877                                         3
-model_2  1.3970 -0.0013330                                                  3
-full    -3.9560  0.0001326 0.011180 -2.082  0.4668 -0.002333 -0.009469   + 17
-null     6.0220                                                             2
-          logLik  AICc  delta weight
-model_3  -66.337 157.6   0.00      1
-model_1 -150.563 307.4 149.79      0
-model_2 -150.897 308.0 150.46      0
-full    -228.098 497.4 339.82      0
-null    -313.141 630.4 472.83      0
+           (Int)       ams      chl     fdl num_lvs  num_phy       sla spc df
+full_log -1.3390  0.002338 0.004368 -0.4743 0.09176 -0.03959 -0.002493   + 17
+model_3   0.8836                                                         + 11
+null_log  1.3500                                                            2
+model_1   0.4650           0.001877                                         3
+model_2   1.3970 -0.001333                                                  3
+           logLik  AICc  delta weight
+full_log  -46.371 133.9   0.00      1
+model_3   -66.337 157.6  23.63      0
+null_log -150.941 306.0 172.06      0
+model_1  -150.563 307.4 173.43      0
+model_2  -150.897 308.0 174.09      0
 Models ranked by AICc(x) </code></pre>
 </div>
 </div>
-<ol start="6" type="1">
-<li><strong>Results</strong></li>
-</ol>
-<!-- -->
-<ol start="9" type="1">
-<li><p><strong>Citations</strong></p>
+</section>
+<section id="results" class="level1">
+<h1>Results</h1>
+</section>
+<section id="citations" class="level1">
+<h1><strong>Citations</strong></h1>
 <p>Farnsworth, Elizabeth J., and Aaron M. Ellison. “Prey Availability Directly Affects Physiology, Growth, Nutrient Allocation and Scaling Relationships among Leaf Traits in 10 Carnivorous Plant Species.” <em>Journal of Ecology</em>, Vol. 0, No.&nbsp;0, 2007, https://doi.org/10.1111/j.1365-2745.2007.01313.x</p>
 <p>Horner, John D., Steele, Cross J., Underwood, Christopher A., Lingamfelter, Daniel. “Age-Related Changes in Characteristics and Prey Capture of Seasonal Cohorts of Sarracenia alata Pitchers.” <em>The American Midland Naturalist,</em> Vol. 167, No.&nbsp;1, 2012,<a href="#0">https://doi.org/10.1674/0003-0031-167.1.13</a></p>
-<p>Wolfe, Lorne M. “Feeding Behavior of a Plant: Differential Prey Capture in Old and New Leaves of the Pitcher Plant (Sarracenia purpurea).” <em>The American Midland Naturalist,</em> Vol. 106, No.&nbsp;2, 1981, https://www.jstor.org/stable/2425172?origin=crossref</p></li>
-</ol>
+<p>Wolfe, Lorne M. “Feeding Behavior of a Plant: Differential Prey Capture in Old and New Leaves of the Pitcher Plant (Sarracenia purpurea).” <em>The American Midland Naturalist,</em> Vol. 106, No.&nbsp;2, 1981, https://www.jstor.org/stable/2425172?origin=crossref</p>
+</section>
 
 </main>
 <!-- /main column -->

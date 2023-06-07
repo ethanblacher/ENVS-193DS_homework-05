@@ -17,6 +17,8 @@ Ethan Blacher
 
 Homework 5
 
+Github repository: https://github.com/ethanblacher/ENVS-193DS_homework-05.git
+
 ```{r Install_Packages}
 # should haves (from last week)
 library(tidyverse)
